@@ -47,8 +47,8 @@ UART_HandleTypeDef huart2;
 int cnt;
 int R_R_FLAG=0;
 int At_Flag=0;
-char Uart_Data[1024]; //variable kisminda 10 byte lik data belirledik
-char Rx_Flag; // extern olmasini istemedik
+char Uart_Data[1024]; // 
+char Rx_Flag; // extern
 char Rx_Tab;
 char Rx_Auto;
 char Rx_Reset;
@@ -56,8 +56,7 @@ char reset[30]="\n\t******Reset STM******\n";
 char message[25]="C - User - ERGUN :";
 char message1[20]="Welcome";
 char message2[20]="\nWrong Place\n";
-char password[5]="ADMIN135";  // ADMIN PASSWORD
-char password2[10]="5TEN1E";
+
 char str[1024];
 char BO[12]="BLUE ON";
 char RO[12]="RED ON";
@@ -72,21 +71,15 @@ char WRONG[20] = "GETTING BACK\n";
 int state=0;
 char ON1[1]="1";
 char ON2[1]="2";
-char and0[200]="\n	      *              *       *         ******           *            ********      *     ******** \n";
-char and1[200]="	     * *             * *     *         *    *          * *           *             *     *        \n";
-char and2[200]="	    *  	*            *  *    *         *    *         *   *          ********      *     ******** \n";
-char and3[200]="	   *******           *   *   *         *    *        *******                *      *            * \n";
-char and4[200]="	  *       *          *    *  *         *    *       *       *               *      *            * \n";
-char and5[200]="	 *         *         *       *         ******      *         *       ********      *     ******** \n";
-char and6[200]="-----------------------------------------------------------------------------------------------------------------\n";
+
 int a;
 char user[5]="ADMIN";
 char root[5]="ROOT";
 char ENTER[20]="\nENTER PASSWORD:";
 int B,C;
 char WR[20]="\nWRONG PASSWORD ";
-char user_host[50]="\nC - USER - ERGUN \n HOSTNAME: ADMIN";
-char root_host[50]="\nC - USER - ERGUN \n HOSTNAME: ROOT";
+char user_host[50]="\nC - USER  \n HOSTNAME: ADMIN";
+char root_host[50]="\nC - USER  \n HOSTNAME: ROOT";
 int TIM_FLAG=0;
 int R_Flag;
 /* USER CODE END PV */
@@ -136,7 +129,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
-  __HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE); //IT DEKI KODLARI AKTIF HALE getirmek için
+  __HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE); //IT codes
   __HAL_TIM_ENABLE_IT(&htim10, TIM_IT_UPDATE);
   HAL_TIM_Base_Start_IT(&htim10);
   HAL_UART_Transmit(&huart2, &message, strlen(message), 10);
@@ -183,7 +176,7 @@ int main(void)
 			  else
 			  {
 				  HAL_UART_Transmit(&huart2, &Uart_Data , strlen(Uart_Data), 10);
-				  state=5;  // wrong user // buna bakacağız
+				  state=5;  // wrong message
 			  }
 			  break;
 
@@ -245,7 +238,7 @@ int main(void)
 			  R_Flag=0;
 			  HAL_UART_Transmit(&huart2, &newline , strlen(newline), 10);
 			  strcpy(str,Uart_Data);
-			  memset(Uart_Data,0,sizeof(Uart_Data)); // SONA GELSIN DIKKAT E
+			  memset(Uart_Data,0,sizeof(Uart_Data)); // 
 
 			  if(R_R_FLAG==1)
 			  {
@@ -312,8 +305,8 @@ int main(void)
 				  state=0;
 			  }
 			  break;
-		  } // switch sonu
-	  } // if sonu
+		  } // switch ends
+	  } // if ends
 
 	  if (Rx_Tab && At_Flag)
 	  {
@@ -321,7 +314,7 @@ int main(void)
 		  Rx_Tab=0;
 		  HAL_UART_Transmit(&huart2, &newline , strlen(newline), 10);
 		  strcpy(str,Uart_Data);
-		  memset(Uart_Data,0,sizeof(Uart_Data)); // SONA GELSIN DIKKAT
+		  memset(Uart_Data,0,sizeof(Uart_Data)); 
 		  char keywords[6][20] = {"RED ON","ORANGE ON","BLUE ON"};
 		  HAL_UART_Transmit(&huart2, &str , strlen(str), 10);
 		  if(str[0]!='\t')
@@ -357,7 +350,7 @@ int main(void)
 
 					  else
 					  {
-						  memset(Uart_Data,0,sizeof(Uart_Data)); // SONA GELSIN DIKKAT
+						  memset(Uart_Data,0,sizeof(Uart_Data));
 
 						  break;
 					  }
