@@ -58,12 +58,12 @@
 extern TIM_HandleTypeDef htim10;
 extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
-extern char Uart_Data[1024]; // mainde degismeli
-extern char Rx_Flag;  // mainde degismeli
+extern char Uart_Data[1024]; // 
+extern char Rx_Flag;  // 
 extern char Rx_Tab;
 extern char Rx_Auto;
-char Rx_Cnt=0; // counter görevi görüyor
-char Rx_Byte[1];  // tek byte tek tek karakter almak için
+char Rx_Cnt=0; // counter role
+char Rx_Byte[1];  // getting one 
 
 
 /* USER CODE END EV */
